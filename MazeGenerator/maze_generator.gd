@@ -75,3 +75,4 @@ func neighbours_have_not_been_visited(cell):
 		if not visited_cells.has(cell + dir) and get_cell(int(cell.x + dir.x), int(cell.y + dir.y)) != LIMIT_ID:
 			neighbours.append(cell + dir)
 	return neighbours
+
