@@ -1,5 +1,6 @@
-extends TileMap
+extends Control
 
+signal start_game
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -8,8 +9,7 @@ extends TileMap
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,5 +17,6 @@ func _ready():
 #	pass
 
 
-func _on_GameObjects_tile_collected(tile):
-	set_cell(tile, 21 , tile)
+
+func _on_Button_pressed():
+	emit_signal("start_game")

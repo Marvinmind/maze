@@ -23,9 +23,13 @@ func _process(delta):
 	if direction != Vector2.ZERO:
 		velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
 		rotationVector = rotationVector.move_toward(direction, delta*10)
+		$AnimatedSprite2.play()
 	else: 
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
-	var _iDontCare = move_and_slide(velocity)
+		$AnimatedSprite2.stop()
+		$AnimatedSprite2.set_frame(0)
+	
+	var _something = move_and_slide(velocity)
 	rotation = rotationVector.angle()
 
 func _physics_process(_delta):
