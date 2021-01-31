@@ -62,7 +62,7 @@ func generate_maze():
 			var random_neighbour = neighbours[randi()%neighbours.size()]
 			stack.push_front(current_cell)
 			var wall = (random_neighbour - current_cell)/2 + current_cell
-			set_cell(int(wall.x), int(wall.y), 1)
+			set_cell(int(wall.x), int(wall.y), PATH_ID) #hkuihuihiuh
 			current_cell = random_neighbour
 			visited_cells.append(current_cell)
 		elif stack.size() > 0:

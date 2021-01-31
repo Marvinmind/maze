@@ -1,5 +1,8 @@
 extends TileMap
 
+signal game_ended
+
+var collected_tiles = []
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -18,4 +21,12 @@ func _ready():
 
 
 func _on_GameObjects_tile_collected(tile):
-	set_cell(tile, 21 , tile)
+	emit_signal("game_ended")
+	if tile == 3:
+		if collected_tiles.size() == 3:
+			emit_signal("game_ended")
+	else:
+		if collected_tiles.find(tile) == -1:
+			collected_tiles.push_back(tile)
+			set_cell(tile, 21 , tile)
+		

@@ -16,9 +16,13 @@ func _on_Player_collided(collision):
 	if collision.collider.name == "GameObjects":
 		var sprite = get_node("../Player")
 		var tile_pos = collision.collider.world_to_map(sprite.position)
-		print(tile_pos)
+
 		tile_pos -= collision.normal
 		var tile = collision.collider.get_cellv(tile_pos)
 
-		set_cell(tile_pos[0], tile_pos[1], -1)
+		if tile != 3:
+			set_cell(tile_pos[0], tile_pos[1], -1)
 		emit_signal("tile_collected", tile)
+		
+		
+
