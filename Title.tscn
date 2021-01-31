@@ -1,18 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Title.gd" type="Script" id=1]
+[ext_resource path="res://Potta_One/Potta_Font.tres" type="DynamicFont" id=2]
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.979695, 1 )
 colors = PoolColorArray( 0.32549, 0.133333, 0.133333, 1, 0.822335, 0.822335, 0.822335, 1, 1, 1, 1, 1 )
 
-[sub_resource type="GradientTexture" id=1]
-gradient = SubResource( 3 )
-
-[sub_resource type="Gradient" id=4]
-
 [sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 4 )
+gradient = SubResource( 1 )
+
+[sub_resource type="Gradient" id=3]
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -25,17 +26,31 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 559.486, 418.919 )
+position = Vector2( 560.9, 418.919 )
 scale = Vector2( 0.61575, 854.799 )
-texture = SubResource( 1 )
-normal_map = SubResource( 2 )
+texture = SubResource( 2 )
+normal_map = SubResource( 4 )
 
 [node name="Button" type="Button" parent="."]
-margin_left = 439.725
-margin_top = 613.033
-margin_right = 609.725
-margin_bottom = 668.033
+margin_left = 438.311
+margin_top = 564.95
+margin_right = 608.311
+margin_bottom = 619.95
 text = "START GAME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 32.1056
+margin_top = 170.172
+margin_right = 278.106
+margin_bottom = 233.172
+rect_scale = Vector2( 4, 4 )
+custom_fonts/font = ExtResource( 2 )
+text = "The A-Maze-Ing
+Game"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

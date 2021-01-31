@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Potta_One/Potta_Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Polygon2D.gd" type="Script" id=2]
+
+[node name="EndScreen" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0.352941, 0.423529, 0.45098, 1 )
+polygon = PoolVector2Array( 0, 0, 0, 800, 1056, 800, 1056, 0, 8, 0 )
+script = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Polygon2D"]
+margin_left = 440.0
+margin_top = 208.0
+margin_right = 864.0
+margin_bottom = 584.0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "This...
+Was...
+A-MAZE-Ing!
+
+"
+text = "This...
+Was...
+A-MAZE-Ing!
+
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}

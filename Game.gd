@@ -1,6 +1,6 @@
 extends Node
 
-signal game_ended
+signal game_root_ended
 
 var night_time = false
 
@@ -19,11 +19,10 @@ var direction = Vector2.ZERO  # The player's movement vector.
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
+	emit_signal("game_root_ended")
 	$NightFall.start()
 	setSprites()
 	setHome()
-	
-
 
 func _on_NightFall_timeout():
 	$Player.get_node("Light2D").enabled = true
@@ -31,15 +30,13 @@ func _on_NightFall_timeout():
 	$DayBreak.start()
 
 
-
 func _on_DayBreak_timeout():
 	$Player.get_node("Light2D").enabled = false
 	$DayBreak.stop()
 	$NightFall.start()
 
-	
-
 func setSprites():
+
 	var cells = $maze_generator.get_used_cells_by_id($maze_generator.PATH_ID)
 	var index = randi() % cells.size()
 	var selectedCell = cells[index]
@@ -60,4 +57,5 @@ func setHome():
 	
 
 func _on_CollectedObjects_game_ended():
-	emit_signal("game_ended")
+	print("GameEnded in root Game")
+	emit_signal("game_root_ended")
